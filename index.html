@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Repertory.dev</title>
+    <meta
+      name="description"
+      content="Repertory.dev is an upcoming Docker Hub-like registry for auditable agent loops, skills, and collections."
+    >
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Repertory.dev home">
+        <img class="brand-mark" src="favicon.png" alt="" aria-hidden="true">
+        <span>Repertory.dev</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#use-cases">Use cases</a>
+        <a href="#model">Model</a>
+        <a href="#trust">Trust</a>
+        <a href="#waitlist">Waitlist</a>
+        <a href="#preview">CLI</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Opening soon</p>
+          <h1 id="hero-title">Repertory.dev</h1>
+          <p class="lede">
+            A Docker Hub-like registry for agent work. Publish the score. Pin
+            the edition. Let any agent conduct the same loop with the right
+            skills, versions, and evidence.
+          </p>
+          <div class="hero-actions" aria-label="Launch status">
+            <a class="status-pill" href="#waitlist">Join the waitlist</a>
+            <span class="supporting-text">For teams turning agent work into reusable practice</span>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Repertory value chain">
+          <div class="value-chain">
+            <div class="chain-header">
+              <span class="chain-label">Repertory</span>
+              <span class="chain-ref">scores + skills + evidence</span>
+            </div>
+            <div class="orchestrator-card">
+              <span class="orchestrator-mark">agent</span>
+              <div>
+                <strong>The agent conducts the work.</strong>
+                <p>The loop is the score. Skills are the instruments. The registry keeps the trusted repertoire.</p>
+              </div>
+            </div>
+            <ol class="chain-steps">
+              <li class="chain-step">
+                <span class="step-index">01</span>
+                <div>
+                  <h2>Author</h2>
+                  <p>Define loops and skills as readable team contracts.</p>
+                  <code>loop.yml + SKILL.md</code>
+                </div>
+              </li>
+              <li class="chain-step">
+                <span class="step-index">02</span>
+                <div>
+                  <h2>Package</h2>
+                  <p>Store versioned loops, skill dependencies, and team collections as OCI artifacts.</p>
+                  <div class="dependency-tree" aria-label="Versioned loop dependencies and collection">
+                    <div class="tree-node collection">engineering_repertoire <span>v1.4.2</span></div>
+                    <div class="tree-branch">
+                      <div class="tree-node primary">review_loop <span>v2.1.0</span></div>
+                      <div class="tree-children">
+                        <div class="tree-node">github_skill <span>v1.6.0</span></div>
+                        <div class="tree-node">docs_skill <span>v2.0.0</span></div>
+                      </div>
+                      <div class="tree-node primary">implement_feature <span>v3.0.4</span></div>
+                      <div class="tree-children">
+                        <div class="tree-node">github_skill <span>v1.6.0</span></div>
+                        <div class="tree-node">codescene_skill <span>v2.0.1</span></div>
+                        <div class="tree-node">terraform_skill <span>v1.1.0</span></div>
+                      </div>
+                      <div class="tree-node primary">release_check <span>v1.8.2</span></div>
+                      <div class="tree-children">
+                        <div class="tree-node">github_skill <span>v1.6.0</span></div>
+                        <div class="tree-node">docs_skill <span>v2.0.0</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="chain-step emphasized">
+                <span class="step-index">03</span>
+                <div>
+                  <h2>Publish</h2>
+                  <p>Share the repertoire through a registry your org can govern.</p>
+                  <code>repertory loop push repertory.dev/NAMESPACE/NAME:VERSION</code>
+                </div>
+              </li>
+              <li class="chain-step">
+                <span class="step-index">04</span>
+                <div>
+                  <h2>Pin</h2>
+                  <p>Resolve tags to immutable digests and lock files.</p>
+                  <code>v1.4.2 @ sha256:...</code>
+                </div>
+              </li>
+              <li class="chain-step">
+                <span class="step-index">05</span>
+                <div>
+                  <h2>Run</h2>
+                  <p>Ask any agent harness to conduct the reviewed workflow.</p>
+                  <code>install repertory</code>
+                  <code>prompt your agent: using repertory, run repertory.dev/NAMESPACE/NAME:VERSION</code>
+                </div>
+              </li>
+              <li class="chain-step">
+                <span class="step-index">06</span>
+                <div>
+                  <h2>Audit</h2>
+                  <p>Every loop run writes a clear step-by-step report for humans, machines, and agents to understand.</p>
+                  <code>.loop/runs/yyyy/mm/dd/hh/mm/&lt;run-id&gt;/report.json</code>
+                </div>
+              </li>
+            </ol>
+            <div class="chain-footer">
+              <span>Shared repertoire</span>
+              <span>Auditable scores</span>
+              <span>Step-by-step reports in .loop/</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="intro-band" aria-label="Positioning">
+        <p>
+          Repertory.dev gives teams one place to publish the loops and skills
+          their agents are allowed to conduct. The portable layer is the Agent
+          Loops specification and OCI, not a single agent harness.
+        </p>
+      </section>
+
+      <section id="use-cases" class="section use-case-section" aria-labelledby="use-cases-title">
+        <div class="section-heading">
+          <p class="eyebrow">Why teams use it</p>
+          <h2 id="use-cases-title">Give agents the same trusted repertoire your best engineers use.</h2>
+        </div>
+        <div class="use-case-grid">
+          <article class="use-case-card">
+            <span class="card-kicker">Onboarding</span>
+            <h3>Bring a repo into agent work safely.</h3>
+            <p>
+              Pull a reviewed repertoire with the loops, skills, and guardrails
+              a new agent needs before touching code.
+            </p>
+          </article>
+          <article class="use-case-card">
+            <span class="card-kicker">Delivery</span>
+            <h3>Run the same feature loop every time.</h3>
+            <p>
+              Ticket analysis, implementation, review, checks, and evidence can
+              become a repeatable workflow instead of a one-off prompt.
+            </p>
+          </article>
+          <article class="use-case-card">
+            <span class="card-kicker">Operations</span>
+            <h3>Share release and incident routines.</h3>
+            <p>
+              Keep high-pressure work auditable with versioned loops that make
+              escalation, outputs, and handoff explicit.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="model" class="section" aria-labelledby="model-title">
+        <div class="section-heading">
+          <p class="eyebrow">Shared primitives</p>
+          <h2 id="model-title">A registry for scores, instruments, and approved repertoires.</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="card-kicker">Loops</span>
+            <h3>Scores for work</h3>
+            <p>
+              YAML definitions for inputs, phases, outputs, transitions, and
+              escalation rules that any orchestrator can follow.
+            </p>
+          </article>
+          <article class="feature-card">
+            <span class="card-kicker">Skills</span>
+            <h3>Reusable instruments</h3>
+            <p>
+              Agent-facing instructions and tools that can be shared across
+              many loops without copy-pasting team knowledge.
+            </p>
+          </article>
+          <article class="feature-card">
+            <span class="card-kicker">Collections</span>
+            <h3>Approved repertoires</h3>
+            <p>
+              Curated loop and skill sets for product engineering, PR review,
+              release coordination, incident response, and more.
+            </p>
+          </article>
+          <article class="feature-card">
+            <span class="card-kicker">Lock files</span>
+            <h3>Repeatable execution</h3>
+            <p>
+              Resolved digests make agent workflows reproducible across
+              machines, repositories, and time.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="trust" class="section trust-section" aria-labelledby="trust-title">
+        <div class="section-heading">
+          <p class="eyebrow">Auditable by default</p>
+          <h2 id="trust-title">Agents need a repertoire humans can inspect.</h2>
+        </div>
+        <div class="trust-list">
+          <div>
+            <strong>Digest pinning</strong>
+            <span>Pin the exact score and skill versions your team reviewed.</span>
+          </div>
+          <div>
+            <strong>Signatures and attestations</strong>
+            <span>Attach provenance, validation, and evaluation evidence with OCI referrers.</span>
+          </div>
+          <div>
+            <strong>Inspect before execution</strong>
+            <span>Review inputs, phases, dependencies, and escalation policy.</span>
+          </div>
+          <div>
+            <strong>Traceable runs</strong>
+            <span>Keep run reports separate from the published workflow contract.</span>
+          </div>
+        </div>
+        <div class="oci-case">
+          <div>
+            <p class="eyebrow">Why OCI</p>
+            <h3>Not just a `SKILL.md` on GitHub.</h3>
+          </div>
+          <p>
+            A raw file over Git or HTTP is easy to fetch, but it is weak as a
+            distribution contract. OCI gives loops and skills immutable digests,
+            version tags, private registry auth, mirroring, collections,
+            referrers for signatures and attestations, and lock files that let
+            teams prove which workflow actually ran.
+          </p>
+        </div>
+      </section>
+
+      <section class="section split-section" aria-labelledby="neutral-title">
+        <div>
+          <p class="eyebrow">Harness-neutral</p>
+          <h2 id="neutral-title">The workflow moves with the team.</h2>
+        </div>
+        <p>
+          Repertory.dev is designed around open Agent Loop documents and
+          OCI-compatible registries. Teams can use the same score with different
+          agents, runtimes, and local policies while preserving the contract,
+          digest, and evidence trail.
+        </p>
+      </section>
+
+      <section id="waitlist" class="section waitlist-section" aria-labelledby="waitlist-title">
+        <div class="waitlist-copy">
+          <p class="eyebrow">Early access</p>
+          <h2 id="waitlist-title">Join the Repertory.dev waitlist.</h2>
+          <p>
+            We are opening the registry to teams who want agents to conduct
+            reviewed workflows, reuse shared skills, and leave a clean trail of
+            what happened.
+          </p>
+        </div>
+        <div class="waitlist-form">
+          <iframe
+            data-tally-src="https://tally.so/embed/EkE7No?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+            loading="lazy"
+            width="100%"
+            height="275"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            title="Join the waitlist"
+          ></iframe>
+        </div>
+      </section>
+
+      <section id="preview" class="section cli-section" aria-labelledby="cli-title">
+        <div class="section-heading">
+          <p class="eyebrow">CLI preview</p>
+          <h2 id="cli-title">Pull the workflow. Share the standard.</h2>
+        </div>
+        <pre class="terminal" aria-label="Repertory command examples"><code>$ repertory loop pull repertory.dev/acme/loops/implement_feature:0.1.0
+$ repertory skill pull repertory.dev/acme/skills/github-pr-review:1.4.0
+$ repertory pull repertory.dev/acme/collection/engineering:2026.07</code></pre>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Repertory.dev</span>
+      <span>Scores for agents. Skills for teams. Traceable work.</span>
+    </footer>
+    <script>
+      var d = document;
+      var w = "https://tally.so/widgets/embed.js";
+      var v = function () {
+        if (typeof Tally !== "undefined") {
+          Tally.loadEmbeds();
+        } else {
+          d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function (e) {
+            e.src = e.dataset.tallySrc;
+          });
+        }
+      };
+      if (typeof Tally !== "undefined") {
+        v();
+      } else if (d.querySelector('script[src="' + w + '"]') == null) {
+        var s = d.createElement("script");
+        s.src = w;
+        s.onload = v;
+        s.onerror = v;
+        d.body.appendChild(s);
+      }
+    </script>
+  </body>
+</html>
